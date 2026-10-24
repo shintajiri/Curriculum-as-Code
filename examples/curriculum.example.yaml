@@ -1,0 +1,56 @@
+# Curriculum as Code — 例（プレースホルダー。実在の学部・科目ではない）
+# 正本はこのファイル。シラバスの該当欄とカリキュラムマップは tools/generate.py で生成する。
+# 学生の成績・個人情報は入れない。
+
+programme:
+  name: <学部・学科名>
+  version: "2026-10"            # 正本の版。生成物に刻印される
+  dp_levels: [導入, 展開, 発展]   # 科目の dp に書ける水準の語（validate.py がこれ以外を弾く）
+
+dp_definitions:
+  DP1: <DP項目名1：例「専門分野の知識を体系的に理解している」>
+  DP2: <DP項目名2：例「データに基づいて課題を分析し、根拠をもって説明できる」>
+  DP3: <DP項目名3：例「多様な背景をもつ他者と協働できる」>
+
+courses:
+  - id: <科目ID-101>
+    name: <科目名：入門科目>
+    year: 1
+    term: <学期>
+    credits: 2
+    goals:
+      G1: <到達目標1>
+      G2: <到達目標2>
+    dp: {DP1: 導入, DP2: 導入}
+    assessments:
+      - {method: レポート, weight: 60, goals: [G1]}
+      - {method: 発表,     weight: 40, goals: [G2]}
+
+  - id: <科目ID-201>
+    name: <科目名：展開科目>
+    year: 2
+    term: <学期>
+    credits: 2
+    goals:
+      G1: <到達目標1>
+      G2: <到達目標2>
+      G3: <到達目標3>
+    dp: {DP2: 展開, DP3: 導入}
+    assessments:
+      - {method: 課題,        weight: 40, goals: [G1, G2]}
+      - {method: グループ発表, weight: 30, goals: [G3]}
+      - {method: 期末試験,    weight: 30, goals: [G1, G2]}
+
+  - id: <科目ID-301>
+    name: <科目名：プロジェクト科目>
+    year: 3
+    term: <学期>
+    credits: 4
+    goals:
+      G1: <到達目標1>
+      G2: <到達目標2>
+    dp: {DP1: 発展, DP2: 発展, DP3: 展開}
+    assessments:
+      - {method: 成果物,   weight: 50, goals: [G1]}
+      - {method: 最終発表, weight: 30, goals: [G2]}
+      - {method: 振り返り, weight: 20, goals: [G1, G2]}
